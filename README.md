@@ -136,7 +136,7 @@ src
 
 #### ERD Model
 
-![ERD Model](https://github.com/tiffanybibby/acrebound/blob/main/assets/acrebound_erd.png?raw=true)
+![ERD Model](https://github.com/tiffanybibby/acrebound/blob/main/assets/acrebound_erd2.png?raw=true)
 <br>
 
 
