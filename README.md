@@ -19,7 +19,7 @@
 
 ## Overview
 
-_**AcreBound** is a property catolouging app for real estate owners. It keeps track of property details for those on a quest to owning multiple acres of land to build generational wealth_
+_**AcreBound** is a property catolouging app for real estate owners. It keeps track of property details for those on a quest to owning multiple acres of land to build generational wealth. Future functionality will include airbnb-style booking for travel nurses to find short-term furnished housing._
 
 
 <br>
@@ -36,7 +36,7 @@ _**AcreBound** is a property catolouging app for real estate owners. It keeps tr
 - Use of CSS styling/Styled components/Component library 
 - Use flexbox or CSS Grid
 - Implement responsive design on 3 screen sizes, using 2 media queries
-- Deploy via Netlify_
+- Deploy via Netlify
 
 <br>
 
@@ -66,7 +66,7 @@ _**AcreBound** is a property catolouging app for real estate owners. It keeps tr
 
 #### Wireframes
 
-![Wireframe](https://github.com/tiffanybibby/acrebound/blob/main/assets/acrebound.png?raw=true)
+![Wireframe](https://github.com/tiffanybibby/acrebound/blob/main/assets/wireframe.png?raw=true)
 
 #### Component Tree
 
@@ -136,7 +136,7 @@ src
 
 #### ERD Model
 
-![ERD Model](https://github.com/tiffanybibby/acrebound/blob/main/assets/acrebound_erd2.png?raw=true)
+![ERD Model](https://github.com/tiffanybibby/acrebound/blob/main/assets/erd.png?raw=true)
 <br>
 
 
