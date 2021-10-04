@@ -19,7 +19,7 @@
 
 ## Overview
 
-_**AcreBound** is a property catolouging app for owners. For those on a quest to owning multiple acres of land to build generational wealth_
+_**AcreBound** is a property catolouging app for real estate owners. It keeps track of property details for those on a quest to owning multiple acres of land to build generational wealth_
 
 
 <br>
@@ -66,29 +66,7 @@ _**AcreBound** is a property catolouging app for owners. For those on a quest to
 
 #### Wireframes
 
-![Dummy Link](url)
-
-- Desktop Landing
-
-![Dummy Link](url)
-
-- Desktop Hero
-
-![Dummy Link](url)
-
-- Resource Index
-
-![Dummy Link](url)
-
-- Resource Show
-
-![Dummy Link](url)
-
-- Tablet Resource Index
-
-![Dummy Link](url)
-
-- Mobile Resource Index
+![Wireframe](https://github.com/tiffanybibby/acrebound/blob/main/assets/acrebound.png?raw=true)
 
 #### Component Tree
 
@@ -130,7 +108,7 @@ src
 
 #### Time Estimates
 
-> Use this section to estimate the time necessary to build out each of the components you've described above.
+> 
 
 
 | Component                 | Priority | Estimated Time | Time Invested | Actual Time |
@@ -168,14 +146,15 @@ src
 
 - users can search/filter properties
 - property management integrations
+- add travel nurse table
 - Airbnb-like booking integrations
 
 ***
 
 ## Code Showcase
 
-> Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
+> 
 
 ## Code Issues & Resolutions
 
-> Use this section to list of all major issues encountered and their resolution.
+> 
