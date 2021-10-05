@@ -1,5 +1,6 @@
 class UnitsController < ApplicationController
   before_action :set_unit, only: [:show, :update, :destroy]
+  before_action :authorize_request
 
   # GET /units
   def index
@@ -10,7 +11,7 @@ class UnitsController < ApplicationController
 
   # GET /units/1
   def show
-    render json: @unit
+    render json: @unit include: :owner, :property
   end
 
   # POST /units
@@ -18,7 +19,7 @@ class UnitsController < ApplicationController
     @unit = Unit.new(unit_params)
 
     if @unit.save
-      render json: @unit, status: :created, location: @unit
+      render json: @unit, status: :created
     else
       render json: @unit.errors, status: :unprocessable_entity
     end
@@ -46,6 +47,6 @@ class UnitsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def unit_params
-      params.require(:unit).permit(:unit_number, :beds, :baths, :sq_ft, :monthly_rent, :occupied, :owner_id, :property_id)
+      params.require(:unit).permit(:unit_number, :beds, :baths, :sq_ft, :monthly_rent, :occupied)
     end
 end
