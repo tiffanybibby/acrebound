@@ -19,7 +19,7 @@
 
 ## Overview
 
-_**AcreBound** is a property catolouging app for real estate owners. It keeps track of property details for those on a quest to owning multiple acres of land to build generational wealth. Future functionality will include airbnb-style booking for travel nurses to find short-term furnished housing._
+_**AcreBound** is a property catolouging app for real estate owners. It keeps track of property details for those on a quest to owning multiple acres of land to build generational wealth._
 
 
 <br>
@@ -146,8 +146,8 @@ src
 
 - users can search/filter properties
 - property management integrations
-- add travel nurse table
 - Airbnb-like booking integrations
+- chat feature for owners
 
 ***
 
