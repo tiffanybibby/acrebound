@@ -82,7 +82,8 @@ src
 |__ components/
       |__ Nav.jsx
       |__ Footer.jsx
-      |__ PropertyCard.jsx
+      |__ PropertyCards.jsx
+      |__ UnitCards.jsx
 |__ containers/
       |__ PropertiesContainer.jsx
 |__ layout/
@@ -95,10 +96,13 @@ src
       |__ Properties.jsx
       |__ PropertyDetails.jsx
       |__ PropertyEdit.jsx
+      |__ UnitEdit.jsx
+      |__ UnitCreate.jsx
 |__ services/
       |__ api-config.js
       |__ auth.js
       |__ Properties.js
+      |__ Units.js
 |__ App.js
 |__ App.css
 |__ index.js
