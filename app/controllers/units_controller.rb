@@ -1,5 +1,5 @@
 class UnitsController < ApplicationController
-  before_action :set_unit, only: [:show, :update, :destroy]
+  before_action :set_unit, only: %i[show update destroy]
   before_action :authorize_request
 
   # GET /units
@@ -11,7 +11,7 @@ class UnitsController < ApplicationController
 
   # GET /units/1
   def show
-    render json: @unit include: :owner, :property
+    render json: @unit, include: %i[owner property]
   end
 
   # POST /units
@@ -40,13 +40,16 @@ class UnitsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_unit
-      @unit = Unit.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def unit_params
-      params.require(:unit).permit(:unit_number, :beds, :baths, :sq_ft, :monthly_rent, :occupied)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_unit
+    @unit = Unit.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def unit_params
+    params
+      .require(:unit)
+      .permit(:unit_number, :beds, :baths, :sq_ft, :monthly_rent, :occupied)
+  end
 end

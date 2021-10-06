@@ -1,4 +1,5 @@
 class OwnersController < ApplicationController
+
   # POST /users
   def create
     @owner = Owner.new(owner_params)
@@ -6,18 +7,18 @@ class OwnersController < ApplicationController
     if @owner.save
       @token = encode({ id: @owner.id })
       render json: {
-               owner: @owner.attributes.except('password_digest'),
-               token: @token,
-             },
-             status: :created
+              owner: @owner.attributes.except('password_digest'),
+              token: @token,
+            },
+            status: :created
     else
       render json: @owner.errors, status: :unprocessable_entity
     end
   end
 
-    private
+  private
 
-    def owner_params
-      params.require(:owner).permit(:first_name, :last_name, :email, :password)
-    end
+  def owner_params
+    params.require(:owner).permit(:first_name, :last_name, :email, :password)
   end
+end

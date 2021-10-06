@@ -1,4 +1,4 @@
 class Property < ApplicationRecord
   belongs_to :owner
-  hash_many :units
+  has_many :units
 end
