@@ -6,7 +6,7 @@ class PropertiesController < ApplicationController
   def index
     @properties = Property.all
 
-    render json: @properties
+    render json: @properties, include: :units
   end
 
   # GET /properties/1
