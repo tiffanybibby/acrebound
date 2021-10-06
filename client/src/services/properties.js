@@ -18,8 +18,7 @@ export const getOneProperty = async (id) => {
 }
 };
 
-export const postProperty = async (propertyData)
- => {
+export const postProperty = async (propertyData) => {
   try {
   const resp = await api.post('/properties', { property: propertyData 
   });
@@ -38,8 +37,7 @@ export const deleteProperty = async (id) => {
   }
 };
 
-export const putProperty = async (id, propertyData)
- => {
+export const putProperty = async (id, propertyData) => {
   try {
   const resp = await api.put(`/properties/${id}`, { property: propertyData 
   });
