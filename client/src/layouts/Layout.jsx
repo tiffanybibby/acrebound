@@ -5,16 +5,16 @@ export default function Layout(props) {
     <div>
       <header>
         <h1>AcreBound</h1>
-        {props.currentUser ? (
+        {props.currentOwner ? (
           <div>
-            <p>{props.currentUser.first_name}</p>
+            <p>{props.currentOwner.first_name}</p>
             <button onClick={props.handleLogout}>Logout</button>
           </div>
         ) : (
           <Link to='/login'>Login/Register</Link>
         )}
         <hr />
-        {props.currentUser && (
+        {props.currentOwner && (
           <div>
             <Link to='/properties'>Properties</Link>
             {/* <Link to='/units'>Units</Link> */}
