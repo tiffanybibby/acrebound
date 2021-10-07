@@ -4,19 +4,28 @@ class UnitsController < ApplicationController
 
   # GET /units
   def index
-    @units = Unit.all
+    @property = Property.find(params[:property_id])
+    @units = Unit.where(property_id: @property.id, owner_id: @current_owner.id)
 
-    render json: @units
+    render json: @units.as_json(include: { property: { include: :owner } }),
+           status: :ok
   end
 
   # GET /units/1
   def show
-    render json: @unit, include: %i[owner property]
+    if @unit.owner_id == @current_owner.id &&
+         @unit.property_id == Property.find(params[:property_id]).id
+      render json: @unit
+    else
+      render json: { status: 404, Message: 'Record not Found!' }
+    end
   end
 
   # POST /units
   def create
     @unit = Unit.new(unit_params)
+    @unit.owner = @current_owner
+    @unit.property_id = params[:property_id]
 
     if @unit.save
       render json: @unit, status: :created
@@ -27,7 +36,9 @@ class UnitsController < ApplicationController
 
   # PATCH/PUT /units/1
   def update
-    if @unit.update(unit_params)
+    if @unit.owner_id == @current_owner.id &&
+         @unit.property_id == Property.find(params[:property_id]).id &&
+         @unit.update(unit_params)
       render json: @unit
     else
       render json: @unit.errors, status: :unprocessable_entity
@@ -36,7 +47,7 @@ class UnitsController < ApplicationController
 
   # DELETE /units/1
   def destroy
-    @unit.destroy
+    @unit.destroy if @unit.owner_id == @current_owner.id
   end
 
   private
