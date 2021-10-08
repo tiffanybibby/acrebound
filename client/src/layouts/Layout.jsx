@@ -1,27 +1,24 @@
-import { Link } from 'react-router-dom';
+import React from "react";
+import "./Layout.css"
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
-export default function Layout(props) {
+function Layout(props) {
+  const { currentOwner, handleLogout } = props;
+
   return (
-    <div>
+    <div className="layout">
       <header>
-        <h1>AcreBound</h1>
-        {props.currentOwner ? (
-          <div>
-            <p>{props.currentOwner.first_name}</p>
-            <button onClick={props.handleLogout}>Logout</button>
-          </div>
-        ) : (
-          <Link to='/login'>Login/Register</Link>
-        )}
-        <hr />
-        {props.currentOwner && (
-          <div>
-            <Link to='/properties'>Properties</Link>
-            {/* <Link to='/units'>Units</Link> */}
-          </div>
-        )}
+      <Nav currentOwner={currentOwner} handleLogout={handleLogout} />
       </header>
-      {props.children}
+      <div className="children">{props.children}</div>
+      <footer>
+      <div className="layout-footer">
+        <Footer />
+      </div>
+        </footer>
     </div>
   );
 }
+
+export default Layout;

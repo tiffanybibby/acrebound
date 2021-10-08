@@ -33,10 +33,29 @@ function App() {
   };
 
   const handleRegister = async (registerData) => {
-    const ownerData = await registerOwner(registerData);
-    setCurrentOwner(ownerData);
-    history.push('/');
-  };
+    // try {
+      // if (password === passwordConfirmation) {
+        const ownerData = await registerOwner(registerData);
+        setCurrentOwner(ownerData);
+        history.push('/');
+      }
+    //   else {
+    //     throw new Error("Register Details Invalid");
+    //   };
+    // }
+    // catch (error) {
+    //   console.error(error);
+    //   setForm({
+    //     first_name: "",
+    //     last_name: "",
+    //     email: "",
+    //     password: "",
+    //     passwordConfirmation: "",
+    //     isError: true,
+    //     errorMsg: "Register Details Invalid!",
+    //   });
+    // }
+  // }
 
   const handleLogout = () => {
     setCurrentOwner(null);
@@ -51,11 +70,11 @@ function App() {
           <Route path='/login'>
             <Login handleLogin={handleLogin} />
           </Route>
-          <Route path='/register'>
+        <Route path='/register'>
             <Register handleRegister={handleRegister} />
           </Route>
           <Route path='/'>
-            <MainContainer />
+            <MainContainer currentOwner={currentOwner} />
           </Route>
         </Switch>
       </Layout>

@@ -7,11 +7,12 @@ class AuthenticationController < ApplicationController
     if @owner.authenticate(login_params[:password])
       #authenticate method provided by Bcrypt and 'has_secure_password'
       token = encode({ id: @owner.id })
-      render json: {
-               owner: @owner.attributes.except('password_digest'),
-               token: token,
-             },
-             status: :ok
+      render json:
+        {
+          owner: @owner.attributes.except('password_digest'),
+          token: token
+        },
+      status: :ok
     else
       render json: { errors: 'unauthorized' }, status: :unauthorized
     end

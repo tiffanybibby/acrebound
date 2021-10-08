@@ -20,8 +20,7 @@ export const getOneProperty = async (id) => {
 
 export const postProperty = async (propertyData) => {
   try {
-  const resp = await api.post('/properties', { property: propertyData 
-  });
+  const resp = await api.post('/properties', { property: propertyData });
   return resp.data;
 } catch (error) {
   throw error;
@@ -39,8 +38,7 @@ export const deleteProperty = async (id) => {
 
 export const putProperty = async (id, propertyData) => {
   try {
-  const resp = await api.put(`/properties/${id}`, { property: propertyData 
-  });
+  const resp = await api.put(`/properties/${id}`, { property: propertyData });
     return resp.data;
   } catch (error) {
     throw error;
