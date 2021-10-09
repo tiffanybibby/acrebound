@@ -5,11 +5,13 @@ Rails
     resources :owners, only: :create
     post '/auth/login', to: 'authentication#login'
     get '/auth/verify', to: 'authentication#verify'
-    resources :properties 
-      resources :units
-      # , except: :index
-      # put 'properties/units', to: 'properties#get_all_units'
-      # resources :units, only: :index
-      # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-    end
+    resources :properties
+    get '/units', to: 'units#index'
+    post '/properties/:property_id/units', to: 'units#create' # usually a submitted form
+    get '/properties/:property_id/units/:id', to: 'units#show'
+    patch '/properties/:property_id/units/:id', to: 'units#update'
+    put '/properties/:property_id/units/:id', to: 'units#update' # usually a submitted form
+    delete '/properties/:property_id/units/:id', to: 'units#destroy'
 
+    # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  end

@@ -46,7 +46,7 @@ export default function UnitCard(props){
 </Link>
 <CardActions>
   <Button size="small" onClick={() => props.handleUnitDelete(props.id)}>Delete</Button>
-  <Link to={`/units/${props.id}/edit`}>
+  <Link to={`properties/${props.property.id}/units/${props.id}/edit`}>
   <Button size="small">Edit</Button> </Link>
 </CardActions>
 </Card>

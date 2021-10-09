@@ -20,6 +20,7 @@ const UnitCards = (props) => {
     <div key={unit.id}>
         <UnitCard
           id={unit.id}
+          property_id={props.property.id}
           unit_number={unit.unit_number}
           beds={unit.beds}
           baths={unit.baths}
