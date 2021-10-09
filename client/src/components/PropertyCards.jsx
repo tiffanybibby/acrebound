@@ -26,7 +26,8 @@ export default function PropertyCards(props) {
         units_num={property.units_num}
         sq_ft={property.sq_ft}
           price={property.price}
-          key={index}
+        key={index}
+        handlePropertyDelete={props.handlePropertyDelete}
           />
           </div>
       ) 

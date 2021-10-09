@@ -12,11 +12,11 @@ function Layout(props) {
       <Nav currentOwner={currentOwner} handleLogout={handleLogout} />
       </header>
       <div className="children">{props.children}</div>
-      <footer>
       <div className="layout-footer">
+      <footer>
         <Footer />
-      </div>
         </footer>
+      </div>
     </div>
   );
 }
