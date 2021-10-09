@@ -1,8 +1,6 @@
-# frozen_string_literal: true
-
-# Controllers for properties
 class PropertiesController < ApplicationController
   before_action :authorize_request
+  before_action :require_permission, only: %i[show update destroy]
   before_action :set_property, only: %i[show update destroy]
   
 
@@ -15,11 +13,7 @@ class PropertiesController < ApplicationController
 
   # GET /properties/1
   def show
-    if @property.owner_id == @current_owner.id
-      render json: @property, include: :units
-    else
-      render json: { status: 404, Message: 'Record not Found!' }
-    end
+      render json: @property
   end
 
   # POST /properties
@@ -36,8 +30,7 @@ class PropertiesController < ApplicationController
 
   # PATCH/PUT /properties/1
   def update
-    if @property.owner_id == @current_owner.id &&
-         @property.update(property_params)
+    if @property.update(property_params)
       render json: @property
     else
       render json: @property.errors, status: :unprocessable_entity
@@ -46,7 +39,8 @@ class PropertiesController < ApplicationController
 
   # DELETE /properties/1
   def destroy
-    @property.destroy if @property.owner_id == @current_owner.id
+    @property.destroy
+    render json: { Message: 'Property was successfully destroyed.' }
   end
 
   private
@@ -56,10 +50,18 @@ class PropertiesController < ApplicationController
     @property = Property.find(params[:id])
   end
 
+  def require_permission
+    @property = Property.find(params[:id])
+
+    return unless @property.owner_id != @current_owner.id
+
+    render json: { Message: 'Unauthorized' }, status: :unauthorized
+  end
+
   # Only allow a list of trusted parameters through.
   def property_params
     params
       .require(:property)
-      .permit(:nickname, :address, :units, :img, :sq_ft, :price)
+      .permit(:nickname, :address, :units_num, :img, :sq_ft, :price)
   end
 end

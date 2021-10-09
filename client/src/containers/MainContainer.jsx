@@ -55,26 +55,26 @@ export default function MainContainer(props) {
     history.push('/properties');
   };
 
-  // const handleUnitCreate = async (unitData) => {
-  //   const newUnit = await postUnit(unitData);
-  //   setUnits((prevState) => [...prevState, newunit]);
-  //   history.push('/properties');
-  // };
+  const handleUnitCreate = async (unitData) => {
+    const newUnit = await postUnit(unitData);
+    setUnits((prevState) => [...prevState, newunit]);
+    history.push('/properties');
+  };
 
-  // const handleUnitDelete = async (id) => {
-  //   await deleteUnit(id);
-  //   setUnits((prevState) => prevState.filter((unitItem) => unitItem.id !== id));
-  // };
+  const handleUnitDelete = async (id) => {
+    await deleteUnit(id);
+    setUnits((prevState) => prevState.filter((unitItem) => unitItem.id !== id));
+  };
 
-  // const handleUnitUpdate = async (id, unitData) => {
-  //   const updatedUnit = await putUnit(id, unitData);
-  //   setUnits((prevState) =>
-  //     prevState.map((unit) => {
-  //       return unit.id === Number(id) ? updatedUnit : unit;
-  //     })
-  //   );
-  //   history.push('/properties');
-  // };
+  const handleUnitUpdate = async (id, unitData) => {
+    const updatedUnit = await putUnit(id, unitData);
+    setUnits((prevState) =>
+      prevState.map((unit) => {
+        return unit.id === Number(id) ? updatedUnit : unit;
+      })
+    );
+    history.push('/properties');
+  };
 
   return (
     <Switch>
@@ -82,7 +82,7 @@ export default function MainContainer(props) {
         <PropertyCreate currentUser={currentUser} handlePropertyCreate={handlePropertyCreate} />
       </Route>
       <Route path='/properties/:id/edit'>
-        <PropertyEdit properties={properties} handlePropertyUpdate={handlePropertyUpdate} />
+        <PropertyEdit currentUser={currentUser} properties={properties} handlePropertyUpdate={handlePropertyUpdate} />
       </Route>
       <Route path='/properties/:id'>
         <PropertyDetail handlePropertyDelete={handlePropertyDelete} />
