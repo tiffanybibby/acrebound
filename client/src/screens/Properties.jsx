@@ -1,20 +1,38 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { Link, Redirect, useHistory } from 'react-router-dom';
 import PropertyCards from '../components/PropertyCards';
 import UnitCards from "../components/UnitCards";
+import {verifyOwner} from "../services/auth";
 
 
 export default function Properties(props) {
-  return (
-    <div>
+  const [currentOwner, setCurrentOwner] = useState(null);
+  const history = useHistory();
 
-      <PropertyCards handlePropertyDelete={props.handlePropertyDelete} />
-      <Link to='/properties/new'>
-        <button>Create</button>
-      </Link>
+  useEffect(() => {
+    const handleVerify = async () => {
+      const ownerData = await verifyOwner();
+      setCurrentOwner(ownerData);
+    };
+    handleVerify();
+  }, []);
+    
+  return (
+    
       <div>
-        <UnitCards />
-        </div>
-    </div>
+      {currentOwner ?
+        <>
+          < PropertyCards handlePropertyDelete={props.handlePropertyDelete} />
+          <Link to='/properties/new'>
+            <button>Create</button>
+          </Link>
+          <div>
+            <UnitCards />
+          </div>
+        </>
+        : <Redirect to="/properties" />
+      }
+    </div >
   );
 }

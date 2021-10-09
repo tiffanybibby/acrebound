@@ -16,17 +16,20 @@ const UnitCards = (props) => {
 
   const CARDS = units
     
-    units.map((unit, index) =>
-      index < 80 ? (
+    .map((unit, index) =>
+    <div key={unit.id}>
         <UnitCard
           id={unit.id}
-          img={unit.img}
-          nickname={unit.nickname}
-          units_num={unit.units_num}
-          price={unit.price}
+          unit_number={unit.unit_number}
+          beds={unit.beds}
+          baths={unit.baths}
+          sq_ft={unit.sq_ft}
+          monthly_rent={unit.monthly_rent}
+          occupied={unit.occupied}
           key={index}
+          handleUnitDelete={props.handleUnitDelete}
         />
-      ) : null
+      </div>
     )
 
   return (

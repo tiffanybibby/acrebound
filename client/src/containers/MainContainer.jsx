@@ -14,7 +14,7 @@ import PropertyDetail from '../screens/PropertyDetail';
 export default function MainContainer(props) {
   const [properties, setProperties] = useState([]);
   const [units, setUnits] = useState([]);
-  const { currentUser } = props;
+  const { currentOwner } = props;
   const history = useHistory();
   const [toggleFetch, setToggleFetch] = useState(false)
 
@@ -57,7 +57,7 @@ export default function MainContainer(props) {
       })
     );
     history.push('/properties')
-    // setToggleFetch((curr) => !curr);
+    setToggleFetch((curr) => !curr);
   };
 
   const handleUnitCreate = async (unitData) => {
@@ -88,19 +88,19 @@ export default function MainContainer(props) {
   return (
     <Switch>
       <Route path='/properties/new'>
-        <PropertyCreate currentUser={currentUser} handlePropertyCreate={handlePropertyCreate} />
+        <PropertyCreate currentOwner={currentOwner} handlePropertyCreate={handlePropertyCreate} />
       </Route>
       <Route path='/properties/:id/edit'>
-        <PropertyEdit currentUser={currentUser} properties={properties} handlePropertyUpdate={handlePropertyUpdate} />
+        <PropertyEdit currentOwner={currentOwner} properties={properties} handlePropertyUpdate={handlePropertyUpdate} />
       </Route>
       <Route path='/properties/:id'>
-        <PropertyDetail handlePropertyDelete={handlePropertyDelete} />
+        <PropertyDetail currentOwner={currentOwner} handlePropertyDelete={handlePropertyDelete} />
       </Route>
       <Route path='/properties'>
-        <Properties units={units} properties={properties} handlePropertyDelete={handlePropertyDelete} handleUnitCreate />
+        <Properties  units={units} properties={properties} handlePropertyDelete={handlePropertyDelete} handleUnitCreate />
       </Route>
       <Route path='/'>
-        <Home units={units} properties={properties} handlePropertyDelete={handlePropertyDelete} />
+        <Home currentOwner={currentOwner} units={units} properties={properties} handlePropertyDelete={handlePropertyDelete} />
       </Route>
     </Switch>
   );

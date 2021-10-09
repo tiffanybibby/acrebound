@@ -2,7 +2,7 @@ import api from "./apiConfig";
 
 export const getAllUnits = async () => {
   try {
-    const resp = await api.get("/units");
+    const resp = await api.get(`/units`);
     return resp.data;
   } catch (error) {
     throw error;
