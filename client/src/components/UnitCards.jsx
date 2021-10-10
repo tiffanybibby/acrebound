@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-// import './unitCards.css'
+import './UnitCards.css'
 import UnitCard from './UnitCard'
 import { getAllUnits } from '../services/units'
 
@@ -34,8 +34,8 @@ const UnitCards = (props) => {
     )
 
   return (
-    <div className='unit-cards'>
-      <div className='index-cards'>{CARDS}</div>
+    <div className='unit-card-container'>
+      <div className='unit-cards'>{CARDS}</div>
     </div>
   )
 }

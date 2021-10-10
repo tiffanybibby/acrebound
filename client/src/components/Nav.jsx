@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import "./Nav/Nav2.css"
+import "./Nav/Nav.css"
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { Link } from "react-router-dom";
@@ -38,13 +38,10 @@ const unauthenticatedOptions = (
               <div>
             <img
               className="logo-img"
-              src="https://github.com/tiffanybibby/acrebound/blob/main/assets/logoicon.png?raw=true"
+              src="https://i.imgur.com/51pfGRS.png"
               alt="Acrebound logo icon"
             />
               </div>
-              <div>
-            <p className="app-name">AcreBound</p>
-            </div>
           </Link>
         </div>
           <div className="nav-options">

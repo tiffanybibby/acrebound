@@ -11,6 +11,7 @@
   margin-left: 2rem;
   font-size: 2rem;
   background: none;
+  color: #ffffff;
 }
 
 .nav-menu {
@@ -41,7 +42,7 @@
 
 .nav-text a {
   text-decoration: none;
-  color: black;
+  color: white;
   font-size: 18px;
   width: 95%;
   height: 100%;
@@ -53,6 +54,7 @@
 
 .nav-text a:hover {
   background-color: #ffffff;
+  color: darkolivegreen;
 }
 
 .nav-menu-items {
@@ -74,8 +76,9 @@ span {
 
 .acrebound-logo {
   display: inline-flex;
-
-
+  width: 70vw;
+  margin-left: 2vw;
+  max-height: 8vw;
 }
 
 .logo-img {

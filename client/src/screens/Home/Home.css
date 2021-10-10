@@ -24,3 +24,7 @@
 .register-btn {
 justify-items: center;
 }
+
+.message-leaf {
+  color: chartreuse;
+}

@@ -5,8 +5,7 @@ class PropertiesController < ApplicationController
 
   # GET /properties
   def index
-    @properties = Property.all
-    # .where(owner_id: @current_owner.id)
+    @properties = Property.where(owner_id: @current_owner.id)
 
     render json: @properties, include: :units, status: :ok
   end

@@ -1,6 +1,10 @@
 import React from "react";
 import { useState, useEffect } from 'react';
-import {useParams, Redirect} from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
 
 export default function PropertyEdit(props) {
   const [formData, setFormData] = useState({
@@ -45,17 +49,18 @@ export default function PropertyEdit(props) {
       {
         currentOwner ?
           <>
-        
+            <Card sx={{ maxWidth: 500, maxHeight: 300 }}>
             <form
               onSubmit={(e) => {
                 e.preventDefault();
                 handlePropertyUpdate(id, formData);
               }}
-            >
+              >
+              <CardContent>
               <h3>Edit property</h3>
               <label>
                 Nickname:
-                <input
+                    <input
                   type="text"
                   name='nickname'
                   value={formData.nickname}
@@ -113,8 +118,12 @@ export default function PropertyEdit(props) {
                 />
               </label>
               <br />
-              <button>Save Changes</button>
+                </CardContent>
+                <CardActions>
+            <Button size="small" >Save Changes</Button>
+            </CardActions>
             </form>
+            </Card>
             </>
           : <Redirect to={`/properties/${props.id}/edit`}/>
       }
