@@ -1,8 +1,32 @@
 .footer {
   background-color: rgb(67, 41, 29);
-  height: 90px;
+  height: 4vw;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   align-content: center;
+  text-align: left;
+  padding: 15px;
+  font-size: 90%;
+  color: white;
+  margin: auto;
+}
+
+.footer img {
+  height: 35px;
+  width: auto;
+}
+
+.footer-links {
+  display: inline-flex;
+  width: 100%;
+  text-align:center;
+  justify-content:center;
+}
+
+.footer a {
+  height: 35px;
+  width: auto;
+  padding-left: 10px;
+  padding-right: 10px;
 }
