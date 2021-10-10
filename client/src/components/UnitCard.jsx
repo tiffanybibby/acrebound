@@ -9,18 +9,19 @@ import Typography from '@mui/material/Typography';
 export default function UnitCard(props) {
   return (
 
-    <Card sx={{ maxWidth: 250, maxHeight: 250 }}>
+    <Card sx={{ maxWidth: 250, maxHeight: 250}}>
       <Link to={`/units/${props.id}`}>
         <CardContent>
 
-          <Typography gutterBottom variant="body2" component="div">
+          <Typography gutterBottom variant="caption" component="div">
             <React.Fragment>
               Unit #:{props.unit_number} <br/>
               Total Beds:{props.beds}<br/>
               Total Baths:{props.baths}<br/>
               Sq ft:{props.sq_ft}<br/>
               Occupied:{props.occupied}<br/>
-              Monthly Rent: ${(props.monthly_rent)}<br/>
+              Monthly Rent: ${(props.monthly_rent)}<br />
+              Property #: {props.property_id}
             </React.Fragment>
           </Typography>
         </CardContent>

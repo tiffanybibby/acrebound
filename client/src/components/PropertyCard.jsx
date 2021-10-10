@@ -39,6 +39,9 @@ export default function PropertyCard(props) {
         <Button size="small" onClick={() => props.handlePropertyDelete(props.id)}>Delete</Button>
         <Link to={`/properties/${props.id}/edit`}>
           <Button size="small">Edit</Button> </Link>
+          <Link to={`properties/${props.id}/units/new`}>
+            <button>Create Unit</button>
+          </Link>
       </CardActions>
     </Card>
   )

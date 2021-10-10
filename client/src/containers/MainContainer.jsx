@@ -102,10 +102,10 @@ export default function MainContainer(props) {
       <Route exact path='/properties'>
         <Properties currentOwner={currentOwner} units={units} properties={properties} handlePropertyDelete={handlePropertyDelete} handleUnitDelete={handleUnitDelete}  />
       </Route>
-      <Route exact path='/properties/property_id/units/:id/edit'>
+      <Route exact path='/properties/:id/units/:id/edit'>
         <UnitEdit currentOwner={currentOwner} properties={properties} units={units} handleUnitUpdate={handleUnitUpdate} />
       </Route>
-      <Route exact path='/properties/property_id/units/new'>
+      <Route exact path='/properties/:id/units/new'>
         <UnitCreate currentOwner={currentOwner} handleUnitCreate={handleUnitCreate} />
       </Route>
       <Route exact path='/'>

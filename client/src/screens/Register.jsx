@@ -7,9 +7,7 @@ export default function Register(props) {
     last_name: '',
     email: '',
     password: '',
-    password_confirmation: ''
-    // isError: false,
-    // errorMsg: ''
+    password_confirmation: '',
   });
 
   const handleChange = (e) => {

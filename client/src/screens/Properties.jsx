@@ -15,10 +15,11 @@ export default function Properties(props) {
         <>
           < PropertyCards currentOwner={props.currentOwner} handlePropertyDelete={props.handlePropertyDelete} />
           <Link to='/properties/new'>
-            <button>Create</button>
+            <button>Create Property</button>
           </Link>
+          
           <div>
-            <UnitCards unitItem={props.unitItem} />
+            <UnitCards units={props.units} />
           </div>
         </>
         : <Redirect to="/properties" />

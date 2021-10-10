@@ -28,7 +28,7 @@ const UnitCards = (props) => {
           occupied={unit.occupied}
           key={index}
           handleUnitDelete={props.handleUnitDelete}
-          // property_id={props.property.id}
+          property_id={unit.property_id}
         />
       </div>
     )
