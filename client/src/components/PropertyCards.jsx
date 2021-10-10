@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from 'react'
 // import './PropertyCards.css'
 import PropertyCard from './PropertyCard'
@@ -16,8 +17,9 @@ export default function PropertyCards(props) {
 
   const CARDS = properties
     
-  .map((property, index) =>
-        <div key={property.id}>
+    .map((property, index) =>
+      <React.Fragment key={index}>
+        <div>
         <PropertyCard
           id={property.id}
           img={property.img}
@@ -27,15 +29,17 @@ export default function PropertyCards(props) {
         sq_ft={property.sq_ft}
           price={property.price}
         key={index}
-        handlePropertyDelete={props.handlePropertyDelete}
-          />
-          </div>
-      ) 
+          handlePropertyDelete={props.handlePropertyDelete}
+        />
+        </div>
+    </React.Fragment>
+  )
+  
     
 
   return (
     <div className='property-cards'>
-      <div className='index-cards'>{CARDS}</div>
+      <div className='index-cards' >{CARDS}</div>
     </div>
   )
 }

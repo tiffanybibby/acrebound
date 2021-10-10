@@ -10,6 +10,9 @@ import Properties from '../screens/Properties';
 import PropertyEdit from '../screens/PropertyEdit';
 import PropertyCreate from '../screens/PropertyCreate';
 import PropertyDetail from '../screens/PropertyDetail';
+import UnitEdit from "../screens/UnitEdit";
+import UnitCreate from "../screens/UnitCreate";
+
 
 export default function MainContainer(props) {
   const [properties, setProperties] = useState([]);
@@ -87,20 +90,26 @@ export default function MainContainer(props) {
 
   return (
     <Switch>
-      <Route path='/properties/new'>
+      <Route exact path='/properties/:id/edit'>
+        <PropertyEdit properties={properties} currentOwner={currentOwner}  handlePropertyUpdate={handlePropertyUpdate} />
+      </Route>
+      <Route exact path='/properties/new'>
         <PropertyCreate currentOwner={currentOwner} handlePropertyCreate={handlePropertyCreate} />
       </Route>
-      <Route path='/properties/:id/edit'>
-        <PropertyEdit currentOwner={currentOwner} properties={properties} handlePropertyUpdate={handlePropertyUpdate} />
-      </Route>
-      <Route path='/properties/:id'>
+      <Route exact path='/properties/:id'>
         <PropertyDetail currentOwner={currentOwner} handlePropertyDelete={handlePropertyDelete} />
       </Route>
-      <Route path='/properties'>
-        <Properties  units={units} properties={properties} handlePropertyDelete={handlePropertyDelete} handleUnitCreate />
+      <Route exact path='/properties'>
+        <Properties currentOwner={currentOwner} units={units} properties={properties} handlePropertyDelete={handlePropertyDelete} handleUnitDelete={handleUnitDelete}  />
       </Route>
-      <Route path='/'>
-        <Home currentOwner={currentOwner} units={units} properties={properties} handlePropertyDelete={handlePropertyDelete} />
+      <Route exact path='/properties/property_id/units/:id/edit'>
+        <UnitEdit currentOwner={currentOwner} properties={properties} units={units} handleUnitUpdate={handleUnitUpdate} />
+      </Route>
+      <Route exact path='/properties/property_id/units/new'>
+        <UnitCreate currentOwner={currentOwner} handleUnitCreate={handleUnitCreate} />
+      </Route>
+      <Route exact path='/'>
+        <Home currentOwner={currentOwner} />
       </Route>
     </Switch>
   );

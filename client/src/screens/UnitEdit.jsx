@@ -1,23 +1,33 @@
 import React from "react";
 import { useState, useEffect } from 'react';
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { getOneUnit } from '../services/units';
 
 export default function UnitEdit(props) {
-  const [formData, setFormData] = useState({
-    unit_number: '',
-    beds: '',
-    baths: '',
-    sq_ft: '',
-    monthly_rent: '',
-    occupied: '',
-  });
+  const [formData, setFormData] = useState(null
+    // unit_number: '',
+    // beds: '',
+    // baths: '',
+    // sq_ft: '',
+    // monthly_rent: '',
+    // occupied: '',
+  );
+  const [unitItem, setUnitItem] = useState(null);
   const { id } = useParams();
   const { units, handleUnitUpdate } = props;
   
+  useEffect(() => {
+    const fetchUnitItem = async () => {
+      const unitData = await getOneUnit(id);
+      setUnitItem(unitData);
+    };
+    fetchUnitItem();
+  }, [id]);
+    
 
   useEffect(() => {
     const prefillFormData = () => {
-      const singleUnit = units.find(Unit=> unit.id === Number(id) )
+      const singleUnit = units.find(unit=> unit.id === Number(id) )
       setFormData({
         unit_number: singleUnit.unit_number,
         beds: singleUnit.beds,
@@ -27,9 +37,7 @@ export default function UnitEdit(props) {
         occupied: singleUnit.occupied,
       });
     }
-    if (units.length) {
       prefillFormData();
-    }
   }, [units, id]);
 
   const handleChange = (e) => {

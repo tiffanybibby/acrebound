@@ -34,13 +34,17 @@ const unauthenticatedOptions = (
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
           <div className="acrebound-logo">
-          <Link to="/">
+            <Link to="/">
+              <div>
             <img
-              className="logo"
+              className="logo-img"
               src="https://github.com/tiffanybibby/acrebound/blob/main/assets/logoicon.png?raw=true"
               alt="Acrebound logo icon"
             />
+              </div>
+              <div>
             <p className="app-name">AcreBound</p>
+            </div>
           </Link>
         </div>
           <div className="nav-options">

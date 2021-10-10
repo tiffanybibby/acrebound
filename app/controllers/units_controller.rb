@@ -7,7 +7,6 @@ class UnitsController < ApplicationController
   # GET /units
   def index
     @units = Unit.where(owner_id: @current_owner.id)
-    # where(owner_id: @current_owner.id)
     render json: @units
   end
 
@@ -28,9 +27,7 @@ class UnitsController < ApplicationController
   # PATCH/PUT /units/1
   def update
     if @unit.update(unit_params)
-      render json: @unit,
-             status: :ok,
-             Message: 'Unit was successfully updated.'
+      render json: @unit, status: :ok, Message: 'Unit was successfully updated.'
     else
       render json: @unit.errors, status: :unprocessable_entity
     end
@@ -44,24 +41,15 @@ class UnitsController < ApplicationController
 
   private
 
-  
   # Use callbacks to share common setup or constraints between actions.
   def set_unit
     @unit = @property.units.find(params[:id])
-    # return unless @unit.owner_id != @current_owner.id
-
-    # render json: { Message: 'Unauthorized' }, status: :unauthorized
+    return unless @unit.owner_id != @current_owner.id
+    render json: { Message: 'Unauthorized' }, status: :unauthorized
   end
-  
+
   def get_property
     @property = Property.find(params[owner_id: @current_owner.id])
-  end
-
-  def require_permission_units
-    @unit = @property.units.find(params[:id])
-    return unless @unit.owner_id != @current_owner.id
-
-    render json: { Message: 'Unauthorized' }, status: :unauthorized
   end
 
   # Only allow a list of trusted parameters through.

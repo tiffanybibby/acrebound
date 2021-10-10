@@ -74,9 +74,9 @@ function App() {
           <Route path="/register">
             <Register handleRegister={handleRegister} />
           </Route>
-          <Route path="/">
+          {/* <Route path="/"> */}
             <MainContainer currentOwner={currentOwner} />
-          </Route>
+          {/* </Route> */}
         </Switch>
       </Layout>
     </div>

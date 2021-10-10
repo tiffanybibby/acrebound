@@ -1,6 +1,26 @@
-body {
+.home {
   background-image: url("https://i.imgur.com/SUcEMbTh.jpg");
   background-color: #cccccc;
   background-repeat: no-repeat;
   background-size: cover;
+  
  }
+
+
+.join-message {
+  display: flex;
+  background-color: rgba(67, 41, 29,.5);
+  height: 20vw;
+  width: 15vw;
+  font-size: 1.8vmax;
+  color: #cccccc;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.register-btn {
+justify-items: center;
+}
