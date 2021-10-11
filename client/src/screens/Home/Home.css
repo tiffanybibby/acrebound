@@ -3,28 +3,60 @@
   background-color: #cccccc;
   background-repeat: no-repeat;
   background-size: cover;
-  
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
  }
 
 
 .join-message {
   display: flex;
-  background-color: rgba(67, 41, 29,.5);
-  height: 20vw;
-  width: 15vw;
-  font-size: 1.8vmax;
+  background-color: rgba(67, 41, 29,.6);
+  height: 100%;
+  width: auto;
+  font-size: 3vmax;
   color: #cccccc;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  padding: 20px;
   text-align: center;
+  font-family: cardo;
+  font-weight:bolder;
 }
 
-.register-btn {
+.home p{
+  white-space: nowrap
+}
+
+.home button {
 justify-items: center;
+background-color: green;
+padding: 5px;
+font-size: 2vw;
 }
 
 .message-leaf {
   color: chartreuse;
+}
+
+.house-gif {
+  height: 40vw;
+  width: auto;
+  padding: 100px;
+}
+
+.emphasis{
+  color: green;
+}
+
+.emphasis2{
+  font-size: 3.8vmax;
+}
+
+.message{
+  padding: 10px
+}
+
+.subtext{
+  font-size: 2vmax;
 }
