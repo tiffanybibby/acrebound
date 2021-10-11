@@ -11,6 +11,9 @@ export default function UnitCreate(props) {
     occupied: '',
   })
 
+  console.log(props.currentOwner) //FIXME
+  console.log(formData) //FIXME
+
     const handleChange = (e) => {
       const { name, value } = e.target;
       setFormData((prevState) => ({
@@ -18,7 +21,8 @@ export default function UnitCreate(props) {
         [name]: value,
       }));
     };
-
+  console.log(formData) //FIXME
+  
   return (
     <form onSubmit={(e)=> {
       e.preventDefault()

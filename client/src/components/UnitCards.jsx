@@ -6,6 +6,9 @@ import { getAllUnits } from '../services/units'
 const UnitCards = (props) => {
   const [units, setUnits] = useState([])
 
+  console.log(props.currentOwner) //FIXME
+
+
   useEffect(() => {
     const fetchUnits = async () => {
       const allUnits = await getAllUnits()

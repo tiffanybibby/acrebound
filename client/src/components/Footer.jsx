@@ -1,4 +1,3 @@
-import React from "react";
 import "./Footer.css"
 import { CgCopyright } from 'react-icons/cg'
 
@@ -14,4 +13,4 @@ function Footer(props) {
   );
 }
 
-export default Footer;
+export default Footer; 

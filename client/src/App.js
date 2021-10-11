@@ -6,6 +6,7 @@ import "./App.css";
 import Layout from "./layouts/Layout";
 import Login from "./screens/Login";
 import Register from "./screens/Register";
+// import Home from "./screens/Home/Home";
 import MainContainer from "./containers/MainContainer";
 
 import {
@@ -14,6 +15,8 @@ import {
   verifyOwner,
   removeToken,
 } from "./services/auth";
+// import PropertyContainer from "./containers/PropertyContainer";
+// import UnitContainer from "./containers/UnitContainer";
 
 function App() {
   const [currentOwner, setCurrentOwner] = useState(null);
@@ -74,10 +77,13 @@ function App() {
           <Route path="/register">
             <Register handleRegister={handleRegister} />
           </Route>
-          {/* <Route path="/"> */}
-            <MainContainer currentOwner={currentOwner} />
-          {/* </Route> */}
         </Switch>
+        <Route path="/">
+          {/* <Home currentOwner={currentOwner} /> */}
+          {/* <PropertyContainer currentOwner={currentOwner} /> */}
+          {/* <UnitContainer currentOwner={currentOwner} /> */}
+          <MainContainer currentOwner={currentOwner} />
+        </Route>
       </Layout>
     </div>
   );

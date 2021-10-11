@@ -1,3 +1,5 @@
+// TODO: add OneUnit
+
 import React from "react";
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -15,6 +17,11 @@ export default function UnitEdit(props) {
   const [unitItem, setUnitItem] = useState(null);
   const { id } = useParams();
   const { units, handleUnitUpdate } = props;
+
+  console.log(props.currentOwner) //FIXME
+  console.log(units) //FIXME
+  console.log(id) //FIXME
+  console.log(formData) //FIXME
   
   useEffect(() => {
     const fetchUnitItem = async () => {
@@ -24,6 +31,7 @@ export default function UnitEdit(props) {
     fetchUnitItem();
   }, [id]);
     
+  console.log(formData) //FIXME
 
   useEffect(() => {
     const prefillFormData = () => {

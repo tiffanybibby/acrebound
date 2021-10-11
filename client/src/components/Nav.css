@@ -76,7 +76,7 @@ span {
 
 .acrebound-logo {
   display: inline-flex;
-  width: 70vw;
+  width: 60vw;
   margin-left: 2vw;
   max-height: 8vw;
 }
@@ -84,3 +84,48 @@ span {
 .logo-img {
   max-height: 8vw;
 }
+
+.logout, input[type="submit"], input[type="reset"] {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+  }
+
+  .nav-options {
+    display: flex;
+    width: 32vw;
+    padding-right: 2vw;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    color: white;
+  }
+
+  .nav-link,
+  .logout,
+  .hello-owner{
+    color: white;
+  }
+
+  .nav-link:hover,
+  .logout:hover,
+  .hello-owner:hover{
+    color: green;
+    text-decoration: underline;
+  }
+
+  .nav-link,
+  .logout{
+padding: 0px 4px;
+  }
+
+  .hello-owner{
+    font-size: 1.8vw;
+    padding-right: 4px;
+  }

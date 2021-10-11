@@ -15,8 +15,8 @@ export default function Nav(props) {
 
   const authenticatedOptions = (
     <>
-      <NavLink className="nav-link" to="/properties/new">Add Properties</NavLink>
-      <br />
+      {/* <NavLink className="nav-link" to="/properties/new">Add Properties</NavLink> */}
+      {/* <br /> */}
       <button className="logout" onClick={handleLogout}>Logout</button>
     </>
   )

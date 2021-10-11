@@ -7,6 +7,8 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 export default function UnitCard(props) {
+  console.log(props.currentOwner) //FIXME
+
   return (
 
     <Card sx={{ maxWidth: 250, maxHeight: 250}}>
