@@ -1,7 +1,9 @@
+import "./Properties.css";
 import React from "react";
 import { Link, Redirect } from 'react-router-dom';
 import PropertyCards from '../components/PropertyCards';
 import UnitCards from "../components/UnitCards";
+import Button from '@mui/material/Button';
 
 
 
@@ -13,13 +15,10 @@ export default function Properties(props) {
 
   return (
     
-      <div>
+      <div className="properties-container">
       {props.currentOwner ?
         <>
           < PropertyCards currentOwner={props.currentOwner} handlePropertyDelete={props.handlePropertyDelete} />
-          <Link to='/properties/new'>
-            <button>Create Property</button>
-          </Link>
           
           <div>
             <UnitCards units={props.units} />

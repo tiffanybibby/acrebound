@@ -1,48 +1,70 @@
+import "./PropertyDetail.css";
 import React from "react";
 import { useState, useEffect } from 'react';
 import { useParams, Link, Redirect } from 'react-router-dom';
 import { getOneProperty } from '../services/properties';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+import Card from '@mui/material/Card';
+import Button from '@mui/material/Button';
+import CardMedia from '@mui/material/CardMedia';
+
 
 export default function PropertyDetail(props) {
   const [propertyItem, setPropertyItem] = useState(null);
   const { id } = useParams();
-  const { currentOwner, handlePropertyDelete } = props
+  const { currentOwner, handlePropertyDelete, toggleFetch } = props
+  // const [toggleFetch, setToggleFetch] = useState(false)
 
-  console.log(props.currentOwner) //FIXME
+  console.log(currentOwner) //FIXME
   console.log(id) //FIXME
+  // console.log(currentOwner.id)
+
 
   useEffect(() => {
     const fetchPropertyItem = async () => {
-      const propertyData = await getOneProperty(id);
+      const propertyData = await getOneProperty(id, toggleFetch);
       setPropertyItem(propertyData);
       console.log(propertyData) //FIXME
     };
     fetchPropertyItem();
-  }, [id]);
+  }, [id, toggleFetch]);
 
   console.log(propertyItem) //FIXME
   return (
     <>
-      <div className="property-detail">
+      <div className="property-detail-container1">
         {currentOwner ?
-          <div className="property-detail-container">
-            <img src={propertyItem?.img} alt={propertyItem?.nickname} />
-            <div className="property-detail">
-              <div>
-                <h5>{propertyItem?.nickname}</h5>
-                <h4>Address: {propertyItem?.address}</h4>
-                <br></br>
-                <p>Description: Broker ipsum dolor sit amet, consectetuer modern interior elit. Doorman building commodo ligula eget dolor. Cum sociis noted architect penatibus et magnis dis high ceilings montes, nascetur stunning views mus. High Line quam felis, ultricies nec, pellentesque rent-controlled tenant in place, pretium quis, sem.</p>
-              </div>
-              <div className="details-bttns">
-                <Link to={`/properties/${id}/edit`}>
-                  <button className="edit">Edit Property</button>
-                </Link>
-                <button onClick={() => handlePropertyDelete(propertyItem.id)}>Remove Property</button>
-              </div>
-            </div>
+          <div className="property-detail-container2">
+            <Card lg={{
+              maxWidth: 150
+            }}>
+              <CardMedia
+                component="img"
+                alt="property"
+                height="300"
+                image={propertyItem?.img}
+              />
+              <CardContent>
+                <div className="property-detail">
+                  <h3>{propertyItem?.nickname}</h3>
+                  <h4>Address: {propertyItem?.address}</h4>
+                  <br></br>
+                  <p>Description: Broker ipsum dolor sit amet, consectetuer modern interior elit. Doorman building commodo ligula eget dolor. Cum sociis noted architect penatibus et magnis dis high ceilings montes, nascetur stunning views mus. High Line quam felis, ultricies nec, pellentesque rent-controlled tenant in place, pretium quis, sem.</p>
+                </div>
+              </CardContent>
+              <CardActions>
+                <div className="details-bttns">
+                  <Link to={`/properties/${id}/edit`}>
+                    <Button size="small" className="edit">Edit Property</Button>
+                  </Link>
+                  <Button className="deletebtn" size="small" onClick={() => handlePropertyDelete(propertyItem.id)}>Remove Property</Button>
+                </div>
+              </CardActions>
+            </Card>
           </div>
-          : <Redirect to="/login" />}
+          // : <Redirect to="/login" />}
+          : <Redirect to={`/properties/${id}`} />}
       </div>
     </>
   );

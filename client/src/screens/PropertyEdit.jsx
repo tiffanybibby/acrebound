@@ -1,3 +1,4 @@
+import "./PropertyEdit.css";
 import React from "react";
 import { useState, useEffect } from 'react';
 import { useParams, Redirect } from 'react-router-dom';
@@ -5,6 +6,7 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
+import CardMedia from '@mui/material/CardMedia';
 
 export default function PropertyEdit(props) {
   const [formData, setFormData] = useState({
@@ -26,7 +28,7 @@ export default function PropertyEdit(props) {
 
   useEffect(() => {
     const prefillFormData = () => {
-      const singleProperty = properties.find(property=> property.id === Number(id) )
+      const singleProperty = properties.find(property => property.id === Number(id))
       setFormData({
         nickname: singleProperty.nickname,
         address: singleProperty.address,
@@ -54,89 +56,90 @@ export default function PropertyEdit(props) {
   console.log(formData) //FIXME
 
   return (
-<div>
+    <div className="form-container">
       {
         currentOwner ?
-          <>
-            <Card sx={{ maxWidth: 500, maxHeight: 300 }}>
+        <>
+          <Card >
             <form
               onSubmit={(e) => {
                 e.preventDefault();
                 handlePropertyUpdate(id, formData);
+                e.stopPropagation()
               }}
-              >
+            >
               <CardContent>
-              <h3>Edit property</h3>
-              <label>
-                Nickname:
-                    <input
-                  type="text"
-                  name='nickname'
-                  value={formData.nickname}
-                  onChange={handleChange}
-                />
-              </label>
-              <br />
-              <label>
-                Address:
-                <input
-                  type='text'
-                  name='address'
-                  value={formData.address}
-                  onChange={handleChange}
-                />
-              </label>
-              <br />
-              <label>
-                Units:
-                <input
-                  type='number'
-                  name='units_num'
-                  value={formData.units_num}
-                  onChange={handleChange}
-                />
-              </label>
-              <br />
-              <label>
-                Image:
-                <input
-                  type='text'
-                  name='img'
-                  value={formData.img}
-                  onChange={handleChange}
-                />
-              </label>
-              <br />
-              <label>
-                Sq ft:
-                <input
-                  type='number'
-                  name='sq_ft'
-                  value={formData.sq_ft}
-                  onChange={handleChange}
-                />
-              </label>
-              <br />
-              <label>
-                Price:
-                <input
-                  type='number'
-                  name='price'
-                  value={formData.price}
-                  onChange={handleChange}
-                />
-              </label>
-              <br />
-                </CardContent>
-                <CardActions>
-            <Button size="small" >Save Changes</Button>
-            </CardActions>
+                <h3>Edit property</h3>
+                <label>
+                  Nickname:
+                  <input
+                    type="text"
+                    name='nickname'
+                    value={formData.nickname}
+                    onChange={handleChange}
+                  />
+                </label>
+                <br />
+                <label>
+                  Address:
+                  <input
+                    type='text'
+                    name='address'
+                    value={formData.address}
+                    onChange={handleChange}
+                  />
+                </label>
+                <br />
+                <label>
+                  Units:
+                  <input
+                    type='number'
+                    name='units_num'
+                    value={formData.units_num}
+                    onChange={handleChange}
+                  />
+                </label>
+                <br />
+                <label>
+                  Image:
+                  <input
+                    type='text'
+                    name='img'
+                    value={formData.img}
+                    onChange={handleChange}
+                  />
+                </label>
+                <br />
+                <label>
+                  Sq ft:
+                  <input
+                    type='number'
+                    name='sq_ft'
+                    value={formData.sq_ft}
+                    onChange={handleChange}
+                  />
+                </label>
+                <br />
+                <label>
+                  Price:
+                  <input
+                    type='number'
+                    name='price'
+                    value={formData.price}
+                    onChange={handleChange}
+                  />
+                </label>
+                <br />
+              </CardContent>
+              <CardActions>
+                  <Button size="small" onClick={() => handlePropertyUpdate(id, formData)}>Save Changes</Button>
+              </CardActions>
             </form>
-            </Card>
-            </>
-          : <Redirect to={`/properties/${props.id}/edit`}/>
+          </Card>
+        </>
+       : <Redirect to={`/properties/${props.id}/edit`} />
       }
-          </div>
+    </div>
   );
 }
 

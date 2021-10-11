@@ -11,7 +11,7 @@ import './PropertyCards.css'
 export default function PropertyCard(props) {
   console.log(props.currentOwner) //FIXME
   return (
-
+<div className="pcard">
     <Card sx={{ maxWidth: 345 }}>
       <Link to={`/properties/${props.id}`}>
         <CardMedia
@@ -38,13 +38,14 @@ export default function PropertyCard(props) {
       </Link>
       <CardActions>
         <Button size="small" onClick={() => props.handlePropertyDelete(props.id)}>Delete</Button>
-        <Link to={`/properties/${props.id}/edit`}>
+        <Link to={`/properties/${props.id}/edit`} onClick={(e) => e.stopPropagation()}>
           <Button size="small">Edit</Button> </Link>
         <Link to={`properties/${props.id}/units/new`}>
-          <button>Create Unit</button>
+          <Button className="createbtn" size="small">Create Unit</Button>
         </Link>
       </CardActions>
-    </Card>
+      </Card>
+      </div>
   )
 }
 

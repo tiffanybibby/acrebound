@@ -1,5 +1,9 @@
 import React from "react";
 import { useState } from 'react';
+import Card from '@mui/material/Card';
+import Button from '@mui/material/Button';
+import CardMedia from '@mui/material/CardMedia';
+import CardActions from '@mui/material/CardActions';
 
 export default function Register(props) {
   const [formData, setFormData] = useState({
@@ -19,6 +23,9 @@ export default function Register(props) {
   };
 
   return (
+    <>
+      <div className="property-detail-container1">
+      <Card>
     <form
       onSubmit={(e) => {
         e.preventDefault();
@@ -75,8 +82,13 @@ export default function Register(props) {
           onChange={handleChange}
         />
       </label>
-      <br />
-      <button>Submit</button>
-    </form>
+            <br />
+            <CardActions>
+      <Button size="small" className="submit" onClick={() => props.handleRegister(formData)}>Submit</Button>
+          </CardActions>
+          </form>
+        </Card>
+        </div>
+    </>
   );
 }

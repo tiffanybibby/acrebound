@@ -1,0 +1,19 @@
+.properties-container {
+  background-image: url("https://i.imgur.com/kczNqWRh.png");
+  background-color: #cccccc;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.properties-container button{
+justify-items: center;
+background-color: white;
+padding: 5px;
+font-size: 1vw;
+} 

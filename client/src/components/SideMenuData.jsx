@@ -18,7 +18,7 @@ export const SidebarData = [
   },
   {
     title: 'Add a Property',
-    path: '/new',
+    path: '/properties/new',
     icon: <FiPlus />,
     cName: 'nav-text'
   },

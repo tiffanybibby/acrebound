@@ -1,4 +1,10 @@
-import {useState} from 'react'
+import "./PropertyCreate.css";
+import { useState } from 'react'
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+
 
 export default function PropertyCreate(props) {
   const [formData, setFormData] = useState({
@@ -23,10 +29,14 @@ export default function PropertyCreate(props) {
   console.log(formData) //FIXME
   
   return (
+    <div className="form-container">
+      <>
+        <Card >
     <form onSubmit={(e)=> {
       e.preventDefault()
       props.handlePropertyCreate(formData);
-    }}>
+          }}>
+             <CardContent>
       <h3>Add Property</h3>
       <label>
         Nickname:
@@ -87,9 +97,15 @@ export default function PropertyCreate(props) {
           onChange={handleChange}
         />
       </label>
-      <br />
-      <button>Submit</button>
-    </form>
+            <br />
+            </CardContent>
+            <CardActions>
+              <Button size="small" onClick={() => props.handlePropertyCreate(formData)} >Submit</Button>
+            </CardActions>
+          </form>
+          </Card>
+        </>
+        </div>
   );
 }
 

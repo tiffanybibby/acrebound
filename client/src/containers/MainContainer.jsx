@@ -97,7 +97,7 @@ export default function MainContainer(props) {
         <PropertyCreate currentOwner={currentOwner} handlePropertyCreate={handlePropertyCreate} />
       </Route>
       <Route exact path='/properties/:id'>
-        <PropertyDetail currentOwner={currentOwner} handlePropertyDelete={handlePropertyDelete} />
+        <PropertyDetail currentOwner={currentOwner} handlePropertyDelete={handlePropertyDelete} toggleFetch={toggleFetch} />
       </Route>
       <Route exact path='/properties'>
         <Properties currentOwner={currentOwner} units={units} properties={properties} handlePropertyDelete={handlePropertyDelete} handleUnitDelete={handleUnitDelete}  />

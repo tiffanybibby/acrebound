@@ -3,5 +3,6 @@ display: flex;
 flex-wrap: wrap;
 flex-direction: row;
 justify-content: space-evenly;
-margin: 40px
+padding: 40px;
+padding-top: 70px;
 }

@@ -1,0 +1,24 @@
+.property-detail-container {
+  background-image: url("https://i.imgur.com/R2i2dquh.png");
+  background-color: #cccccc;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+}
+
+.property-detail-container2{
+  width: 100%
+
+}
+
+.property-detail{
+  padding: 40px;
+}
+
+.details-bttns{
+  display: flex;
+  justify-content: flex-end;
+}
