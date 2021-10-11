@@ -59,15 +59,15 @@ export default function MainContainer(props) {
         return property.id === Number(id) ? updatedProperty : property;
       })
     );
-    history.push('/properties')
     setToggleFetch((curr) => !curr);
+    history.push('/properties')
   };
 
   const handleUnitCreate = async (unitData) => {
     const newUnit = await postUnit(unitData);
     setUnits((prevState) => [...prevState, newUnit]);
-    history.push('/properties');
     setToggleFetch((curr) => !curr)
+    history.push('/properties');
   };
 
   const handleUnitDelete = async (id) => {
@@ -90,25 +90,25 @@ export default function MainContainer(props) {
 
   return (
     <Switch>
-      <Route exact path='/properties/:id/edit'>
+      <Route path='/properties/:id/edit'>
         <PropertyEdit properties={properties} currentOwner={currentOwner}  handlePropertyUpdate={handlePropertyUpdate} />
       </Route>
-      <Route exact path='/properties/new'>
+      <Route path='/properties/new'>
         <PropertyCreate currentOwner={currentOwner} handlePropertyCreate={handlePropertyCreate} />
       </Route>
-      <Route exact path='/properties/:id'>
+      <Route path='/properties/:id'>
         <PropertyDetail currentOwner={currentOwner} handlePropertyDelete={handlePropertyDelete} toggleFetch={toggleFetch} />
       </Route>
-      <Route exact path='/properties'>
+      <Route path='/properties'>
         <Properties currentOwner={currentOwner} units={units} properties={properties} handlePropertyDelete={handlePropertyDelete} handleUnitDelete={handleUnitDelete}  />
       </Route>
-      <Route exact path='/properties/:id/units/:id/edit'>
+      <Route path='/properties/:id/units/:id/edit'>
         <UnitEdit currentOwner={currentOwner} properties={properties} units={units} handleUnitUpdate={handleUnitUpdate} />
       </Route>
-      <Route exact path='/properties/:id/units/new'>
+      <Route path='/properties/:id/units/new'>
         <UnitCreate currentOwner={currentOwner} handleUnitCreate={handleUnitCreate} />
       </Route>
-      <Route exact path='/'>
+      <Route path='/'>
         <Home currentOwner={currentOwner} />
       </Route>
     </Switch>

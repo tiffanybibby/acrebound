@@ -1,7 +1,8 @@
 class UnitsController < ApplicationController
   before_action :authorize_request
   before_action :get_property, except: :index
-  before_action :require_permission_units, only: %i[update destroy]
+
+  # before_action :require_permission_units, only: %i[update destroy]
   before_action :set_unit, only: %i[update destroy]
 
   # GET /units
@@ -43,6 +44,10 @@ class UnitsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_unit
+    @unit = @property.units.find(params[:id])
+  end
+
+  def require_permission_units
     @unit = @property.units.find(params[:id])
     return unless @unit.owner_id != @current_owner.id
     render json: { Message: 'Unauthorized' }, status: :unauthorized

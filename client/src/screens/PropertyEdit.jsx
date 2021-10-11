@@ -65,7 +65,6 @@ export default function PropertyEdit(props) {
               onSubmit={(e) => {
                 e.preventDefault();
                 handlePropertyUpdate(id, formData);
-                e.stopPropagation()
               }}
             >
               <CardContent>
@@ -132,7 +131,7 @@ export default function PropertyEdit(props) {
                 <br />
               </CardContent>
               <CardActions>
-                  <Button size="small" onClick={() => handlePropertyUpdate(id, formData)}>Save Changes</Button>
+                  <Button size="small" onClick={() => props.handlePropertyUpdate(id, formData)}>Save Changes</Button>
               </CardActions>
             </form>
           </Card>

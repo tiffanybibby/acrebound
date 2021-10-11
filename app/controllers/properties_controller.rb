@@ -1,7 +1,6 @@
 class PropertiesController < ApplicationController
   before_action :authorize_request
   before_action :set_property, only: %i[show update destroy]
-  
 
   # GET /properties
   def index
@@ -12,7 +11,7 @@ class PropertiesController < ApplicationController
 
   # GET /properties/1
   def show
-      render json: @property
+    render json: @property
   end
 
   # POST /properties
@@ -47,14 +46,19 @@ class PropertiesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_property
     @property = Property.find(params[:id])
-    return unless @property.owner_id != @current_owner.id
-    render json: { Message: 'Unauthorized' }, status: :unauthorized
-  end
   end
 
-  # Only allow a list of trusted parameters through.
-  def property_params
-    params
-      .require(:property)
-      .permit(:nickname, :address, :units_num, :img, :sq_ft, :price)
+  def authorize_property
+    @property = Property.find(params[:id])
+    return unless @property.owner_id != @current_owner.id
+
+    render json: { Message: 'Unauthorized' }, status: :unauthorized
   end
+end
+
+# Only allow a list of trusted parameters through.
+def property_params
+  params
+    .require(:property)
+    .permit(:nickname, :address, :units_num, :img, :sq_ft, :price)
+end
