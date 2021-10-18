@@ -26,16 +26,13 @@ export default function Properties(props) {
 
 
     <div className="properties-container">
-    {props.currentOwner ?
       <>
         < PropertyCards currentOwner={props.currentOwner} handlePropertyDelete={props.handlePropertyDelete} />
         
         <div>
-          <UnitCards units={props.units} />
+          <UnitCards currentOwner={props.currentOwner} units={props.units} />
         </div>
       </>
-      : <Redirect to="/properties" />
-    }
   </div >
 );
 }

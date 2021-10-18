@@ -13,28 +13,27 @@ import CardMedia from '@mui/material/CardMedia';
 export default function PropertyDetail(props) {
   const [propertyItem, setPropertyItem] = useState(null);
   const { id } = useParams();
-  const { currentOwner, handlePropertyDelete, toggleFetch } = props
-  // const [toggleFetch, setToggleFetch] = useState(false)
+  const [isLoaded, setLoaded] = useState(false);
 
-  console.log(currentOwner) //FIXME
   console.log(id) //FIXME
-  // console.log(currentOwner.id)
+ 
 
 
   useEffect(() => {
     const fetchPropertyItem = async () => {
-      const propertyData = await getOneProperty(id, toggleFetch);
+      const propertyData = await getOneProperty(id);
+      setLoaded(true);
       setPropertyItem(propertyData);
       console.log(propertyData) //FIXME
     };
     fetchPropertyItem();
-  }, [id, toggleFetch]);
+  }, [id]);
 
   console.log(propertyItem) //FIXME
   return (
     <>
       <div className="property-detail-container1">
-        {currentOwner ?
+   
           <div className="property-detail-container2">
             <Card lg={{
               maxWidth: 150
@@ -58,13 +57,11 @@ export default function PropertyDetail(props) {
                   <Link to={`/properties/${id}/edit`}>
                     <Button size="small" className="edit">Edit Property</Button>
                   </Link>
-                  <Button className="deletebtn" size="small" onClick={() => handlePropertyDelete(propertyItem.id)}>Remove Property</Button>
+                  <Button className="deletebtn" size="small" onClick={() => props.handlePropertyDelete(propertyItem.id)}>Remove Property</Button>
                 </div>
               </CardActions>
             </Card>
           </div>
-          // : <Redirect to="/login" />}
-          : <Redirect to={`/properties/${id}`} />}
       </div>
     </>
   );

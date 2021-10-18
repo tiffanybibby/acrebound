@@ -5,7 +5,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+// import Typography from '@mui/material/Typography';
 import './PropertyCards.css'
 
 export default function PropertyCard(props) {
@@ -21,19 +21,19 @@ export default function PropertyCard(props) {
           image={props.img}
         />
         <CardContent>
-          <Typography gutterBottom variant="h6" component="div">
+          {/* <Typography gutterBottom variant="h6" component="div"> */}
             {props.nickname}<br />
-          </Typography>
-          <Typography gutterBottom variant="body2" component="div">
+          {/* </Typography> */}
+          {/* <Typography gutterBottom variant="body2" component="div"> */}
             {props.address}<br />
             Total Units: {props.units_num}<br />
             Total Sq ft: {props.sq_ft}<br />
             <br />
             <br />
-          </Typography>
-          <Typography gutterBottom variant="body1" component="div">
+          {/* </Typography> */}
+          {/* <Typography gutterBottom variant="body1" component="div"> */}
             ${(props.price)}
-          </Typography>
+          {/* </Typography> */}
         </CardContent>
       </Link>
       <CardActions>

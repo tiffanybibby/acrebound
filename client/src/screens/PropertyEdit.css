@@ -70,6 +70,9 @@ form textarea {
   width: 65%;
 }
 
+form p {
+  padding-right: 20px;
+}
 
 @media screen and (max-width: 600px) {
   .form label, input[type=submit] {

@@ -28,7 +28,7 @@ export default function MainContainer(props) {
       setProperties(propertyList);
     };
     fetchProperties();
-  }, [toggleFetch]);
+  }, []);
 
   useEffect(() => {
     const fetchUnits = async () => {
@@ -36,19 +36,19 @@ export default function MainContainer(props) {
       setUnits(unitList);
     };
     fetchUnits();
-  }, [toggleFetch]);
+  }, []);
 
   const handlePropertyCreate = async (propertyData) => {
     const newProperty = await postProperty(propertyData);
     setProperties((prevState) => [...prevState, newProperty]);
     history.push('/properties');
-    setToggleFetch((curr) => !curr)
+    // setToggleFetch((curr) => !curr)
   };
 
   const handlePropertyDelete = async (id) => {
     await deleteProperty(id);
     setProperties((prevState) => prevState.filter((propertyItem) => propertyItem.id !== id));
-    setToggleFetch((curr) => !curr)
+    // setToggleFetch((curr) => !curr)
     history.push('/properties');
   };
 
@@ -59,7 +59,7 @@ export default function MainContainer(props) {
         return property.id === Number(id) ? updatedProperty : property;
       })
     );
-    setToggleFetch((curr) => !curr);
+    // setToggleFetch((curr) => !curr);
     history.push('/properties')
   };
 
@@ -90,26 +90,26 @@ export default function MainContainer(props) {
 
   return (
     <Switch>
-      <Route path='/properties/:id/edit'>
-        <PropertyEdit properties={properties} currentOwner={currentOwner}  handlePropertyUpdate={handlePropertyUpdate} />
+      <Route exact path='/properties/:id/edit'>
+        <PropertyEdit properties={properties} units={units} currentOwner={currentOwner}  handlePropertyUpdate={handlePropertyUpdate} />
       </Route>
-      <Route path='/properties/new'>
+      <Route exact path='/properties/new'>
         <PropertyCreate currentOwner={currentOwner} handlePropertyCreate={handlePropertyCreate} />
       </Route>
-      <Route path='/properties/:id'>
-        <PropertyDetail currentOwner={currentOwner} handlePropertyDelete={handlePropertyDelete} toggleFetch={toggleFetch} />
+      <Route exact path='/properties/:id'>
+        <PropertyDetail currentOwner={currentOwner} properties={properties}handlePropertyDelete={handlePropertyDelete} toggleFetch={toggleFetch} />
       </Route>
-      <Route path='/properties'>
+      <Route exact path='/properties'>
         <Properties currentOwner={currentOwner} units={units} properties={properties} handlePropertyDelete={handlePropertyDelete} handleUnitDelete={handleUnitDelete}  />
       </Route>
-      <Route path='/properties/:id/units/:id/edit'>
+      <Route exact path='/properties/:id/units/:id/edit'>
         <UnitEdit currentOwner={currentOwner} properties={properties} units={units} handleUnitUpdate={handleUnitUpdate} />
       </Route>
-      <Route path='/properties/:id/units/new'>
+      <Route exact path='/properties/:id/units/new'>
         <UnitCreate currentOwner={currentOwner} handleUnitCreate={handleUnitCreate} />
       </Route>
-      <Route path='/'>
-        <Home currentOwner={currentOwner} />
+      <Route exact path='/'>
+        <Home />
       </Route>
     </Switch>
   );

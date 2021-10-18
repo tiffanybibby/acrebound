@@ -42,8 +42,9 @@ export default function Login(props) {
         />
       </label>
       <br />
-      <Link to='/register'>Register</Link>
       <button>Submit</button>
+      <br/>
+      <Link to='/register'>Don't have an account?</Link>
     </form>
   );
 }
