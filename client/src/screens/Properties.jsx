@@ -1,5 +1,6 @@
 import "./Properties.css";
 import React from "react";
+import { useState, useEffect } from "react";
 import { Link, Redirect } from 'react-router-dom';
 import PropertyCards from '../components/PropertyCards';
 import UnitCards from "../components/UnitCards";
@@ -8,15 +9,22 @@ import Button from '@mui/material/Button';
 
 
 export default function Properties(props) {
-
-  // function myFunction(showUnitContainer) {
-  //   let x = document.getElementById("properties-units-container");
-  //   if (x.style.visibility === "hidden") {
-  //     x.style.visibility = "visible";
-  //   } else {
-  //     x.style.visibility = "hidden";
-  //   }
-  // }
+//   const [selectedUnits, setSelectedUnits] = useState("");
+//   // function myFunction(showUnitContainer) {
+//   //   let x = document.getElementById("properties-units-container");
+//   //   if (x.style.visibility === "hidden") {
+//   //     x.style.visibility = "visible";
+//   //   } else {
+//   //     x.style.visibility = "hidden";
+//   //   }
+//   // }
+//    const filtered = ProjectData.map((p) => ({
+//       ...p,
+//       filtered: p.category.includes(filter),
+//     }));
+//     setProjects(filtered);
+// }, [filter];
+  
 
   console.log(props.currentOwner) //FIXME
   console.log(props.properties) //FIXME not being recieved

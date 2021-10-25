@@ -21,7 +21,8 @@ export default function PropertyCard(props) {
           image={props.img}
         />
           <CardContent style={{ width: 300, padding: 20 }}>
-          {/* <Typography gutterBottom variant="h6" component="div"> */}
+          <div className="details-no-price" style={{ height:150 }}>
+            {/* <Typography gutterBottom variant="h6" component="div"> */}
             {props.nickname}<br />
           {/* </Typography> */}
           {/* <Typography gutterBottom variant="body2" component="div"> */}
@@ -31,6 +32,7 @@ export default function PropertyCard(props) {
             <br />
             <br />
           {/* </Typography> */}
+          </div>
           {/* <Typography gutterBottom variant="body1" component="div"> */}
             ${(props.price)}
           {/* </Typography> */}

@@ -21,7 +21,6 @@ export default function MainContainer(props) {
   const history = useHistory();
   const [toggleFetch, setToggleFetch] = useState(false)
 
-
   useEffect(() => {
     const fetchProperties = async () => {
       const propertyList = await getAllProperties();
@@ -100,7 +99,7 @@ export default function MainContainer(props) {
         <PropertyDetail currentOwner={currentOwner} properties={properties}handlePropertyDelete={handlePropertyDelete} toggleFetch={toggleFetch} />
       </Route>
       <Route exact path='/properties'>
-        <Properties currentOwner={currentOwner} units={units} properties={properties} handlePropertyDelete={handlePropertyDelete} handleUnitDelete={handleUnitDelete}  />
+        <Properties currentOwner={currentOwner} units={units} properties={properties} handlePropertyDelete={handlePropertyDelete} handleUnitDelete={handleUnitDelete}/>
       </Route>
       <Route exact path='/properties/:id/units/:id/edit'>
         <UnitEdit currentOwner={currentOwner} properties={properties} units={units} handleUnitUpdate={handleUnitUpdate} />
