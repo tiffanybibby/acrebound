@@ -16,21 +16,21 @@ Owner.create!(
       first_name: 'Tiffany',
       last_name: 'Bibby',
       email: 'tiffany.bibby@gmail.com',
-      password: '232323*',
+      password: '232323*'
     },
     {
       first_name: 'Christina',
       last_name: 'Dauphin',
       email: 'cd@email.com',
-      password: '121000',
+      password: '121000'
     },
     {
       first_name: 'Neville',
       last_name: 'Hall',
       email: 'nh@email.com',
-      password: '082800',
-    },
-  ],
+      password: '082800'
+    }
+  ]
 )
 
 @owners = Owner.all
@@ -45,7 +45,7 @@ Property.create!(
       img: 'https://i.imgur.com/1AVfCObl.jpg',
       sq_ft: 1280,
       price: 400_500,
-      owner: @owners.first,
+      owner: @owners.first
     },
     {
       nickname: 'My Condo',
@@ -54,7 +54,7 @@ Property.create!(
       img: 'https://i.imgur.com/oXl2vYxl.jpg',
       sq_ft: 1200,
       price: 385_000,
-      owner: @owners.first,
+      owner: @owners.first
     },
     {
       nickname: 'Black Girl Magic',
@@ -63,7 +63,7 @@ Property.create!(
       img: 'https://i.imgur.com/ViXNEv1l.jpg',
       sq_ft: 1280,
       price: 1_000_000,
-      owner: @owners.first,
+      owner: @owners.first
     },
     {
       nickname: 'Am I An Adult Yet?',
@@ -72,7 +72,7 @@ Property.create!(
       img: 'https://i.imgur.com/etL9NPel.jpg',
       sq_ft: 900,
       price: 300_000,
-      owner: @owners.second,
+      owner: @owners.second
     },
     {
       nickname: 'Childhood Home',
@@ -81,7 +81,7 @@ Property.create!(
       img: 'https://i.imgur.com/2tsEuptl.jpg',
       sq_ft: 800,
       price: 255_000,
-      owner: @owners.third,
+      owner: @owners.third
     },
     {
       nickname: 'The Hall',
@@ -90,9 +90,9 @@ Property.create!(
       img: 'https://i.imgur.com/uu7QZ1Fl.jpg',
       sq_ft: 1000,
       price: 906_000,
-      owner: @owners.third,
-    },
-  ],
+      owner: @owners.third
+    }
+  ]
 )
 
 @properties = Property.all
@@ -108,7 +108,7 @@ Unit.create!(
       monthly_rent: 100,
       occupied: true,
       owner: @owners.first,
-      property: @properties.first,
+      property: @properties.first
     },
     {
       unit_number: '1',
@@ -118,7 +118,7 @@ Unit.create!(
       monthly_rent: 2200,
       occupied: true,
       owner: @owners.first,
-      property: @properties.second,
+      property: @properties.second
     },
     {
       unit_number: '1',
@@ -128,7 +128,7 @@ Unit.create!(
       monthly_rent: 2800,
       occupied: true,
       owner: @owners.second,
-      property: @properties.fourth,
+      property: @properties.fourth
     },
     {
       unit_number: '1',
@@ -138,7 +138,7 @@ Unit.create!(
       monthly_rent: 2900,
       occupied: true,
       owner: @owners.third,
-      property: @properties.fifth,
+      property: @properties.fifth
     },
   ],
 )
@@ -172,7 +172,7 @@ Unit.create!(
       end,
     occupied: Faker::Boolean.boolean,
     owner: @owners.first,
-    property: @properties.third,
+    property: @properties.third
   )
 end
 
@@ -205,7 +205,7 @@ end
       end,
     occupied: Faker::Boolean.boolean,
     owner: @owners.first,
-    property: @properties.third,
+    property: @properties.third
   )
 end
 
@@ -238,7 +238,7 @@ end
       end,
     occupied: Faker::Boolean.boolean,
     owner: @owners.first,
-    property: @properties.third,
+    property: @properties.third
   )
 end
 
@@ -271,7 +271,7 @@ end
       end,
     occupied: Faker::Boolean.boolean,
     owner: @owners.first,
-    property: @properties.third,
+    property: @properties.third
   )
 end
 
@@ -304,7 +304,7 @@ end
       end,
     occupied: Faker::Boolean.boolean,
     owner: @owners.first,
-    property: @properties.third,
+    property: @properties.third
   )
 end
 
@@ -339,7 +339,7 @@ end
       end,
     occupied: Faker::Boolean.boolean,
     owner: @owners.third,
-    property: @properties.last,
+    property: @properties.last
   )
 end
 

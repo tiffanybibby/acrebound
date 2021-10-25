@@ -11,8 +11,8 @@ export default function UnitCard(props) {
 
   return (
 
-    <Card sx={{ maxWidth: 250, maxHeight: 250}}>
-      <Link to={`/units/${props.id}`}>
+    <Card sx={{ maxWidth: 250, maxHeight: 250, margin:1}}>
+      {/* <Link to={`/units/${props.id}`}> */}
         <CardContent>
 
           <Typography gutterBottom variant="caption" component="div">
@@ -27,7 +27,7 @@ export default function UnitCard(props) {
             </React.Fragment>
           </Typography>
         </CardContent>
-      </Link>
+      {/* </Link> */}
       <CardActions>
         <Button size="small" onClick={() => props.handleUnitDelete(props.id)}>Delete</Button>
         <Link to={`properties/${props.property_id}/units/${props.id}/edit`}>

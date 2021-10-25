@@ -29,7 +29,7 @@ export default function Properties(props) {
       <>
         < PropertyCards currentOwner={props.currentOwner} handlePropertyDelete={props.handlePropertyDelete} />
         
-        <div>
+        <div className="properties-units">
           <UnitCards currentOwner={props.currentOwner} units={props.units} />
         </div>
       </>

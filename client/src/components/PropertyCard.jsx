@@ -12,7 +12,7 @@ export default function PropertyCard(props) {
   console.log(props.currentOwner) //FIXME
   return (
 <div className="pcard">
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, height: 450}}>
       <Link to={`/properties/${props.id}`}>
         <CardMedia
           component="img"
@@ -20,7 +20,7 @@ export default function PropertyCard(props) {
           height="180"
           image={props.img}
         />
-        <CardContent>
+          <CardContent style={{ width: 300, padding: 20 }}>
           {/* <Typography gutterBottom variant="h6" component="div"> */}
             {props.nickname}<br />
           {/* </Typography> */}
@@ -35,15 +35,17 @@ export default function PropertyCard(props) {
             ${(props.price)}
           {/* </Typography> */}
         </CardContent>
-      </Link>
+        </Link>
+        <div className="actions" >
       <CardActions>
-        <Button size="small" onClick={() => props.handlePropertyDelete(props.id)}>Delete</Button>
+          <Button size="small" onClick={() => props.handlePropertyDelete(props.id)}>Delete</Button>
         <Link to={`/properties/${props.id}/edit`} onClick={(e) => e.stopPropagation()}>
           <Button size="small">Edit</Button> </Link>
         <Link to={`properties/${props.id}/units/new`}>
           <Button className="createbtn" size="small">Create Unit</Button>
         </Link>
       </CardActions>
+      </div>
       </Card>
       </div>
   )

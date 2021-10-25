@@ -1,11 +1,11 @@
 import "./PropertyEdit.css";
 import { useState, useEffect } from 'react';
 import { useParams, Redirect } from 'react-router-dom';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import CardMedia from '@mui/material/CardMedia';
+// import Card from '@mui/material/Card';
+// import CardActions from '@mui/material/CardActions';
+// import CardContent from '@mui/material/CardContent';
+// import Button from '@mui/material/Button';
+// import CardMedia from '@mui/material/CardMedia';
 
 export default function PropertyEdit(props) {
   const [formData, setFormData] = useState({
@@ -34,7 +34,7 @@ export default function PropertyEdit(props) {
         units_num: singleProperty.units_num,
         img: singleProperty.img,
         sq_ft: singleProperty.sq_ft,
-        price: singleProperty.price,
+        price: singleProperty.price
       });
     }
     if (props.properties.length) {
@@ -62,73 +62,73 @@ export default function PropertyEdit(props) {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            props.handlePropertyUpdate(id, formData);
+            handlePropertyUpdate(id, formData);
           }}
         >
           <div className="edit-container">
             <h3>Edit property</h3>
-          <label> Nickname: </label>
-          <input
-            type="text"
-            name='nickname'
-            value={formData.nickname}
-            onChange={handleChange}
-          />
+            <label> Nickname: </label>
+            <input
+              type="text"
+              name='nickname'
+              value={formData.nickname}
+              onChange={handleChange}
+            />
 
-          <br />
-          <label>
-            Address:
-          </label>
-          <input
-            type='text'
-            name='address'
-            value={formData.address}
-            onChange={handleChange}
-          />
-          <br />
-          <label>
-            Units:
-          </label>
-          <input
-            type='number'
-            name='units_num'
-            value={formData.units_num}
-            onChange={handleChange}
-          />
-          <br />
-          <label>
-            Image:
-          </label>
-          <input
-            type='text'
-            name='img'
-            value={formData.img}
-            onChange={handleChange}
-          />
-          <br />
-          <label>
-            Sq ft:
-          </label>
-          <input
-            type='number'
-            name='sq_ft'
-            value={formData.sq_ft}
-            onChange={handleChange}
-          />
-          <br />
-          <label>
-            Price:
-          </label>
-          <input
-            type='number'
-            name='price'
-            value={formData.price}
-            onChange={handleChange}
-          />
-          <br />
+            <br />
+            <label>
+              Address:
+            </label>
+            <input
+              type='text'
+              name='address'
+              value={formData.address}
+              onChange={handleChange}
+            />
+            <br />
+            <label>
+              Units:
+            </label>
+            <input
+              type='number'
+              name='units_num'
+              value={formData.units_num}
+              onChange={handleChange}
+            />
+            <br />
+            <label>
+              Image:
+            </label>
+            <input
+              type='text'
+              name='img'
+              value={formData.img}
+              onChange={handleChange}
+            />
+            <br />
+            <label>
+              Sq ft:
+            </label>
+            <input
+              type='number'
+              name='sq_ft'
+              value={formData.sq_ft}
+              onChange={handleChange}
+            />
+            <br />
+            <label>
+              Price:
+            </label>
+            <input
+              type='number'
+              name='price'
+              value={formData.price}
+              onChange={handleChange}
+            />
+            <br />
 
-          <button type="submit">Save Changes</button>
-</div>
+            <button type="submit">Save Changes</button>
+          </div>
         </form>
 
       </>

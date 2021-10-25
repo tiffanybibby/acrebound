@@ -1,5 +1,7 @@
-CardActions {
-display: flex;
-flex-direction: column;
-justify-content:flex-end;
+.actions {
+  display: flex;
+  flex: 1 0 auto;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
 }
